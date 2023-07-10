@@ -1,0 +1,36 @@
+<h1>Form</h1>
+
+<%= form_with model: game do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% game.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+    <% game.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+  </div>
+
+  <div>
+  <%= form.label :company %><br>
+  <%= form.text_area :company %>
+  <% game.errors.full_messages_for(:company).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  </div>
+
+  <div>
+  <%= form.label :status %><br>
+  <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<h1 class='heading'>Games News</h1>
+
+<div class="container">
+<p class ="centered-text">Our blog has <%= Game.public_count %> games and counting!</p>
+</div>
+
+<ul>
+  <% @games.each do |game| %>
+    <% unless game.archived? %>
+      <li>
+        <%= link_to game.title, game, class: "button"  %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<%= link_to "New Game", new_game_path, class: 'custom-link'%>
+
